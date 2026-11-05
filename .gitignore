@@ -14,6 +14,7 @@ logs/*
 *.sqlite*
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/custom_ru.csv
 data/processed/*
 !data/processed/.gitkeep
 ml/artifacts/*

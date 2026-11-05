@@ -1,0 +1,33 @@
+{
+  "rows": 5574,
+  "encoding": "utf-8 (strict decode)",
+  "file_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+  "dtypes": {
+    "id": "int64",
+    "text": "str",
+    "label": "int64"
+  },
+  "class_counts": {
+    "0": 4827,
+    "1": 747
+  },
+  "missing_text": 0,
+  "empty_text": 0,
+  "exact_duplicate_texts": 403,
+  "examples_redacted": {
+    "0": [
+      "Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...",
+      "Ok lar... Joking wif u oni...",
+      "U dun say so early hor... U c already then say...",
+      "Nah I don't think he goes to usf, he lives around here though",
+      "Even my brother is not like to speak with me. They treat me like aids patent."
+    ],
+    "1": [
+      "Free entry in * a wkly comp to win FA Cup final tkts **st May ****. Text FA to ***** to receive entry question(std txt rate)T&C's apply ***********over**'s",
+      "FreeMsg Hey there darling it's been * week's now and no word back! I'd like some fun you up for it still? Tb ok! XxX std chgs to send, £*.** to rcv",
+      "WINNER!! As a valued network customer you have been selected to receivea £*** prize reward! To claim call ***********. Claim code KL***. Valid ** hours only.",
+      "Had your mobile ** months or more? U R entitled to Update to the latest colour mobiles with camera for Free! Call The Mobile Update Co FREE on ***********",
+      "SIX chances to win CASH! From *** to **,*** pounds txt> CSH** and send to *****. Cost ***p/day, *days, **+ TsandCs apply Reply HL * info"
+    ]
+  }
+}

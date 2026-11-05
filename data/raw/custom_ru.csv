@@ -1,0 +1,101 @@
+id,text,label,language,scenario,annotation_author,split,synthetic
+ru-001,Привет! Встретимся завтра у входа в библиотеку?,0,ru,meeting,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-002,Я задержусь на десять минут. Начинайте без меня.,0,ru,meeting,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-003,"Встречу перенесли на пятницу, место прежнее.",0,ru,meeting,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-004,После занятий зайдём в столовую вместе.,0,ru,meeting,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-005,Увидимся вечером на остановке возле парка.,0,ru,meeting,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-006,Доброе утро! Как прошла поездка?,0,ru,family,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-007,"Я дома, ужин уже готов. Приходи, когда освободишься.",0,ru,family,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-008,"Не забудь взять зонт, обещают дождь.",0,ru,family,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-009,Спасибо за помощь с переездом!,0,ru,family,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-010,Поздравляю с праздником! Желаю хорошего настроения.,0,ru,family,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-011,Конспект оставил на столе в читальном зале.,0,ru,study,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-012,Завтра лекция начнётся в девять часов.,0,ru,study,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-013,Для семинара прочитайте первую главу учебника.,0,ru,study,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-014,Можно одолжить твой учебник до понедельника?,0,ru,study,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-015,Преподаватель выложил расписание консультаций.,0,ru,study,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-016,Ваш учебный заказ собран. Оплата при получении.,0,ru,delivery,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-017,Курьер подъедет после обеда. Дополнительной оплаты нет.,0,ru,delivery,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-018,Посылка поступила в выбранный пункт выдачи.,0,ru,delivery,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-019,Доставку перенесли по вашему запросу на субботу.,0,ru,delivery,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-020,"Заказ отменён по вашему обращению, действий не требуется.",0,ru,delivery,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-021,"Никому не сообщайте коды из сообщений, даже сотрудникам банка.",0,ru,security,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-022,Банк не просит переводить деньги на безопасный счёт.,0,ru,security,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-023,"Если звонок кажется странным, завершите разговор и проверьте номер сами.",0,ru,security,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-024,Это учебное напоминание: не отправляйте пароли в переписке.,0,ru,security,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-025,Подозрительное письмо можно показать специалисту без перехода по ссылке.,0,ru,security,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-026,"Учебное уведомление: покупка на сумму 250 руб. Если всё верно, отвечать не нужно.",0,ru,bank_notice,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-027,В учебной выписке доступен новый отчёт. Откройте приложение самостоятельно.,0,ru,bank_notice,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-028,Карта готова к получению в выбранном отделении. Коды не запрашиваем.,0,ru,bank_notice,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-029,Срок действия учебной карты истекает в следующем месяце.,0,ru,bank_notice,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-030,Ваше обращение рассмотрено. Ответ доступен в личном кабинете приложения.,0,ru,bank_notice,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-031,Созвон команды начнётся после обеда.,0,ru,work,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-032,"Документ согласован, можно готовить печатную версию.",0,ru,work,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-033,"Спасибо, отчёт получил. Посмотрю завтра.",0,ru,work,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-034,"Сегодня работаю из дома, напиши в общий чат.",0,ru,work,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-035,Переговорная свободна до конца рабочего дня.,0,ru,work,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-036,Тренировку перенесли в соседний зал.,0,ru,hobby,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-037,Принеси настольную игру на встречу клуба.,0,ru,hobby,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-038,"Книга понравилась, особенно последняя глава.",0,ru,hobby,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-039,На выходных планируем прогулку без спешки.,0,ru,hobby,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-040,Билеты на учебный спектакль лежат в конверте.,0,ru,hobby,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-041,Напоминаем о записи в учебный центр завтра утром.,0,ru,appointment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-042,Консультация отменена. Выберите удобное время при следующем посещении.,0,ru,appointment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-043,Сегодня библиотека закрывается раньше обычного.,0,ru,appointment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-044,"Ваше место на мастер-классе подтверждено, платить больше не нужно.",0,ru,appointment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-045,В субботу музей проводит бесплатную экскурсию без регистрации.,0,ru,appointment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-046,Расписание учебного кружка: https://club.example/schedule . Никаких платежей нет.,0,ru,neutral_url,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-047,Материалы открытого урока находятся на https://lesson.test/materials .,0,ru,neutral_url,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-048,Учебная инструкция без формы входа: https://guide.example/read .,0,ru,neutral_url,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-049,Посмотри программу выставки на https://museum.test/program .,0,ru,neutral_url,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-050,Список книг для обсуждения: https://books.example/list .,0,ru,neutral_url,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-051,Служба безопасности учебного банка: срочно подтвердите владельца на http://bank-help.test/verify,1,ru,fake_bank,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-052,Обнаружен чужой вход! Немедленно введите пароль на http://bank-check.example/login,1,ru,fake_bank,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-053,Ваши средства под угрозой. Переведите остаток на безопасный счёт по указанию оператора.,1,ru,fake_bank,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-054,Банк требует удалённый доступ к устройству для защиты денег. Установите программу сейчас.,1,ru,fake_bank,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-055,Для отмены кредита отправьте фото карты и секретный код сотруднику в ответном сообщении.,1,ru,fake_bank,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-056,Карта заблокирована! Восстановите доступ немедленно: http://card-unlock.test,1,ru,card_block,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-057,Через час отключим вашу карту. Подтвердите её данные на http://restore.example/card,1,ru,card_block,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-058,Блокировка всех счетов уже началась. Срочно назовите пароль для отмены.,1,ru,card_block,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-059,Оплатите штраф за разблокировку карты через http://unlock-fee.test/pay,1,ru,card_block,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-060,Снимем ограничение по карте только после перевода залога на новый счёт консультанта.,1,ru,card_block,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-061,Вы выиграли крупный приз! Для получения оплатите сбор на http://prize-fee.example,1,ru,prize,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-062,Поздравляем с победой в лотерее без участия! Сообщите данные карты для выплаты.,1,ru,prize,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-063,"Заберите бесплатный смартфон сегодня, внеся страховку на http://gift-insurance.test",1,ru,prize,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-064,Ваш бонус сгорит через минуту. Введите код из банка на http://bonus-claim.example,1,ru,prize,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-065,Гарантированный денежный выигрыш ждёт вас. Сначала переведите комиссию организатору.,1,ru,prize,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-066,Посылку уничтожат сегодня! Срочно оплатите хранение: http://parcel-fee.test,1,ru,delivery_fraud,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-067,Неверный адрес доставки. Подтвердите карту и пароль на http://delivery-check.example,1,ru,delivery_fraud,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-068,Таможня требует немедленный перевод на личный счёт курьера для выпуска заказа.,1,ru,delivery_fraud,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-069,"Чтобы получить посылку, сообщите одноразовый банковский код диспетчеру.",1,ru,delivery_fraud,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-070,Последнее предупреждение о доставке: оплатите 350 руб на http://post-pay.test,1,ru,delivery_fraud,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-071,"Мама, я в беде! Срочно переведи деньги на новый счёт, не звони и никому не говори.",1,ru,relative,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-072,"Это твой родственник, телефон сломался. Нужен немедленный перевод, объясню позже.",1,ru,relative,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-073,"Попал в аварию, срочно оплати помощь на счёт незнакомого посредника. Только без звонков.",1,ru,relative,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-074,"Не рассказывай семье: меня задержали, переведи выкуп прямо сейчас.",1,ru,relative,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-075,"Я сменил номер. Одолжи деньги до вечера, проверять мою личность сейчас некогда.",1,ru,relative,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-076,Сотрудник банка: назовите код из SMS для отмены подозрительной операции.,1,ru,code_request,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-077,"Продиктуйте пароль из уведомления, иначе потеряете доступ к счёту.",1,ru,code_request,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-078,"Отправьте одноразовый код в ответ на это сообщение, чтобы остановить списание.",1,ru,code_request,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-079,Служба поддержки просит секретный код и пароль для плановой проверки аккаунта.,1,ru,code_request,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-080,"Подтвердите, что вы владелец: пришлите снимок сообщения с кодом авторизации.",1,ru,code_request,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-081,Госслужба: оплатите выдуманный штраф немедленно на http://fine-pay.example,1,ru,government,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-082,Ваши документы аннулируют сегодня. Введите пароль кабинета на http://state-verify.test,1,ru,government,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-083,Для получения пособия переведите регистрационный взнос частному посреднику.,1,ru,government,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-084,Проверка налоговой: назовите банковский код для предотвращения ареста имущества.,1,ru,government,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-085,Суд требует срочную оплату на неизвестный кошелёк. Не обращайтесь в канцелярию.,1,ru,government,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-086,Гарантируем удвоение вложений за день! Внесите первый платёж на http://profit.test,1,ru,investment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-087,"Инвестиции без риска, прибыль каждый час. Срочно отправьте все накопления куратору.",1,ru,investment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-088,Для вывода уже начисленного дохода сначала оплатите разблокировку счёта.,1,ru,investment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-089,Только для вас секретная биржа с гарантией выигрыша. Передайте пароль от банка.,1,ru,investment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-090,"Купите учебный токен сейчас, завтра он точно подорожает в сто раз. Перевод только посреднику.",1,ru,investment,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-091,Почту удалят через час! Войдите с паролем на http://mail-restore.example,1,ru,account,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-092,Аккаунт заблокирован за жалобу. Подтвердите код входа на http://account-safe.test,1,ru,account,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-093,Администратор требует пароль в ответном SMS для сохранения вашей страницы.,1,ru,account,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-094,Для восстановления профиля отключите защиту и сообщите резервные коды помощнику.,1,ru,account,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-095,Ваш облачный архив будет стёрт. Оплатите срочный выкуп на http://cloud-fee.example,1,ru,account,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-096,Вам положен возврат за несуществующую покупку. Введите все реквизиты карты на http://refund.test,1,ru,refund,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-097,Получите компенсацию без заявления! Сначала оплатите комиссию на http://claim-fee.example,1,ru,refund,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-098,"Мы случайно перевели вам деньги. Верните их на другой счёт, не проверяя баланс.",1,ru,refund,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-099,Вакансия с гарантированным доходом: отправьте залог работодателю до собеседования.,1,ru,refund,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
+ru-100,Для отмены платной подписки назовите секретный банковский код нашему оператору.,1,ru,refund,OpenAI Codex (AI-generated synthetic text and labels; no human expert review),test_only,True
