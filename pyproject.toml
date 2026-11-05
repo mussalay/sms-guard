@@ -11,3 +11,7 @@ exclude = [".venv"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# Notebook bootstrap locates the project before importing its modules.
+"notebooks/*.ipynb" = ["E402"]

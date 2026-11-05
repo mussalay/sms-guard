@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from ml.eda import content_tokens, observations, summarize
+from ml.eda import content_tokens, observations, plot_eda, summarize
 
 
 def test_eda_counts_word_boundaries_and_indicator_denominators():
@@ -27,3 +27,21 @@ def test_eda_counts_word_boundaries_and_indicator_denominators():
 def test_eda_rejects_empty_corpus():
     with pytest.raises(ValueError):
         summarize(pd.DataFrame())
+
+
+def test_eda_exports_all_required_analyses_as_png(tmp_path):
+    from PIL import Image
+
+    data = pd.DataFrame(
+        {
+            "text_raw": ["Hello", "Win £10!"],
+            "text_clean": ["hello", "win <money>!"],
+            "label": [0, 1],
+        }
+    )
+    features, report = summarize(data)
+    figures = plot_eda(features, report, tmp_path)
+    assert len(figures) == 5
+    for path in figures:
+        with Image.open(path) as image:
+            assert image.format == "PNG" and image.width >= 1000 and image.height >= 700

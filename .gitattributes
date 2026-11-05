@@ -1,0 +1,5 @@
+# Synthetic CSV and original NLTK lists have byte-level reproducibility checks.
+data/raw/custom_ru.csv -text
+ml/resources/*.txt -text
+ml/resources/NLTK_STOPWORDS_README -text
+*.ipynb text eol=lf

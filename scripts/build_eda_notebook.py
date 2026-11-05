@@ -1,5 +1,7 @@
 """Build the auditable task-5 notebook; execute separately with run_notebook.py."""
 
+import subprocess
+import sys
 from pathlib import Path
 
 import nbformat as nbf
@@ -91,11 +93,12 @@ def build():
             "write_json(ROOT / 'docs/reports/05_eda.json', summary)\n"
             "report = '# Задание 5 — фактические результаты EDA' + chr(10)*2\n"
             "report += chr(10).join('- ' + f for f in facts)\n"
-            "report += '\\n\\nИсследован весь очищенный UCI до обучения без подбора параметров. ' "
-            "+ 'Русский test-only не использован. Пять PNG с русскими подписями — docs/figures/. ' "
-            "+ 'Дисбаланс учитывается стратификацией; в задании7 планируется balanced для LR, ' "
-            "+ 'в дальнейшем Precision/Recall/F1/F2, а не только Accuracy. ' "
-            "+ 'Модель не обучена, качество не измерено.\\n'\n"
+            "report += chr(10)*2\n"
+            "report += 'Исследован весь очищенный UCI до обучения без подбора параметров. '\n"
+            "report += 'Русский test-only не использован. Пять PNG — docs/figures/. '\n"
+            "report += 'Дисбаланс учитывается стратификацией; для LR планируется balanced, '\n"
+            "report += 'далее Precision/Recall/F1/F2, а не только Accuracy. '\n"
+            "report += 'Модель не обучена, качество не измерено.' + chr(10)\n"
             "(ROOT / 'docs/05_eda.md').write_text(report, encoding='utf-8')"
         ),
         md(
@@ -106,6 +109,38 @@ def build():
             "особенно русском языке."
         ),
     ]
+    # Keep regenerated cells compliant with the same formatter/import order as repository code.
+    for cell in notebook.cells:
+        if cell.cell_type != "code":
+            continue
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "ruff",
+                "check",
+                "--select",
+                "I",
+                "--fix",
+                "--stdin-filename",
+                "cell.py",
+                "-",
+            ],
+            input=cell.source,
+            text=True,
+            encoding="utf-8",
+            capture_output=True,
+            check=True,
+        )
+        formatted = subprocess.run(
+            [sys.executable, "-m", "ruff", "format", "--stdin-filename", "cell.py", "-"],
+            input=result.stdout,
+            text=True,
+            encoding="utf-8",
+            capture_output=True,
+            check=True,
+        )
+        cell.source = formatted.stdout.strip()
     nbf.write(notebook, ROOT / "notebooks/01_eda_sms.ipynb")
 
 

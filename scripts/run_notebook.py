@@ -1,5 +1,6 @@
 """Execute task-5 notebook with THIS Python, using a workspace-local kernelspec."""
 
+import asyncio
 import os
 import sys
 from pathlib import Path
@@ -13,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     from ml.data.load_sms import write_json
 
+    if sys.platform == "win32":
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     data_dir = ROOT / ".cache/jupyter"
     kernel_dir = data_dir / "kernels/sms-guard"
     write_json(

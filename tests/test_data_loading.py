@@ -47,6 +47,37 @@ def test_archive_checksum_mismatch_is_not_overwritten(tmp_path):
     assert archive.read_bytes() == b"changed"
 
 
+def test_official_download_and_cached_extraction_are_immutable(tmp_path, monkeypatch):
+    import io
+    import zipfile
+
+    import ml.data.load_sms as loader
+
+    payload = io.BytesIO()
+    with zipfile.ZipFile(payload, "w") as zipped:
+        zipped.writestr("SMSSpamCollection", b"ham\tHello\nspam\tPrize\n")
+        zipped.writestr("readme", b"Original attribution")
+
+    def response(url, timeout):
+        assert url == loader.SOURCE_URL and timeout == 30
+        return io.BytesIO(payload.getvalue())
+
+    monkeypatch.setattr(loader, "urlopen", response)
+    record = tmp_path / "source.json"
+    raw = loader.download_uci(tmp_path, record)
+    assert load_sms(raw).label.tolist() == [0, 1]
+    assert json.loads(record.read_text())["license"] == "CC BY 4.0"
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Cached download must not contact network")
+
+    monkeypatch.setattr(loader, "urlopen", forbidden)
+    assert loader.download_uci(tmp_path, record) == raw
+    raw.write_text("locally changed", encoding="utf-8")
+    with pytest.raises(ValueError, match="перезапись запрещена"):
+        loader.download_uci(tmp_path, record)
+
+
 def test_custom_ru_is_reproducible_balanced_and_test_only(tmp_path):
     path = tmp_path / "custom.csv"
     build_custom_ru(path)

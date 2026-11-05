@@ -238,7 +238,7 @@ def build_custom_ru(path: Path) -> None:
         raise ValueError("Повторные искусственные сообщения")
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as target:
-        writer = csv.DictWriter(target, fieldnames=list(records[0]))
+        writer = csv.DictWriter(target, fieldnames=list(records[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(records)
 

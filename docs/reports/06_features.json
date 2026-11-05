@@ -1,0 +1,191 @@
+{
+  "dataset_sha256": "c09f1ff46b546695394c85239b0a3404444a0acd04e1e7f284d1f13c6079246b",
+  "seed": 42,
+  "counts": {
+    "train": {
+      "rows": 3594,
+      "classes": {
+        "0": 3161,
+        "1": 433
+      }
+    },
+    "val": {
+      "rows": 770,
+      "classes": {
+        "0": 678,
+        "1": 92
+      }
+    },
+    "test": {
+      "rows": 771,
+      "classes": {
+        "0": 678,
+        "1": 93
+      }
+    }
+  },
+  "matrix_shapes": {
+    "train": [
+      3594,
+      59924
+    ],
+    "val": [
+      770,
+      59924
+    ],
+    "test": [
+      771,
+      59924
+    ]
+  },
+  "matrix_nnz": {
+    "train": 559630,
+    "val": 111373,
+    "test": 113423
+  },
+  "matrix_sha256": {
+    "train": "9e14d87f6ac11f82c59a895b26b152fd70e832b0b967ce331571ee0dca98e3d8",
+    "val": "08aa0cb8e12121b8023c3c4eae8927d7d1417234c878c94d4926059d857fb8ca",
+    "test": "4fbe42c1723d1a5a0ab81feebedd4da77abb5d0c43817c870634734cd464eccc"
+  },
+  "feature_counts": {
+    "word": 8785,
+    "char": 51133,
+    "manual": 6
+  },
+  "top15_train_tfidf_by_class": {
+    "0": [
+      {
+        "feature": "word__you",
+        "mean_tfidf": 0.03183288088847606
+      },
+      {
+        "feature": "word__to",
+        "mean_tfidf": 0.0244218620708224
+      },
+      {
+        "feature": "word__the",
+        "mean_tfidf": 0.02066971380013996
+      },
+      {
+        "feature": "char__ th",
+        "mean_tfidf": 0.020042597619924923
+      },
+      {
+        "feature": "word__<num>",
+        "mean_tfidf": 0.01883782561685294
+      },
+      {
+        "feature": "word__in",
+        "mean_tfidf": 0.018523122792071384
+      },
+      {
+        "feature": "word__me",
+        "mean_tfidf": 0.017838694648626485
+      },
+      {
+        "feature": "word__and",
+        "mean_tfidf": 0.01733149882826247
+      },
+      {
+        "feature": "char__ yo",
+        "mean_tfidf": 0.01722255949207907
+      },
+      {
+        "feature": "char__you",
+        "mean_tfidf": 0.01704498271020881
+      },
+      {
+        "feature": "char__ i ",
+        "mean_tfidf": 0.01704369795027104
+      },
+      {
+        "feature": "char__ you",
+        "mean_tfidf": 0.01698708169596182
+      },
+      {
+        "feature": "word__it",
+        "mean_tfidf": 0.016562785437873307
+      },
+      {
+        "feature": "word__my",
+        "mean_tfidf": 0.01629312032785748
+      },
+      {
+        "feature": "word__is",
+        "mean_tfidf": 0.015976016662348318
+      }
+    ],
+    "1": [
+      {
+        "feature": "word__<num>",
+        "mean_tfidf": 0.11644619308480186
+      },
+      {
+        "feature": "char__ <n",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__ <nu",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__ <num",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__<nu",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__<num",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__<num>",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__m> ",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__num>",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__num> ",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__um>",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__um> ",
+        "mean_tfidf": 0.07644290353420188
+      },
+      {
+        "feature": "char__num",
+        "mean_tfidf": 0.07618764741820579
+      },
+      {
+        "feature": "word__<phone>",
+        "mean_tfidf": 0.05433672691691476
+      },
+      {
+        "feature": "word__to",
+        "mean_tfidf": 0.047187682525993625
+      }
+    ]
+  },
+  "versions": {
+    "python": "3.13.7",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1"
+  },
+  "pipeline_reload_equal": true,
+  "classifier_trained": false,
+  "fit_scope": "train only; val/test transform only; Russian corpus excluded"
+}
