@@ -1,0 +1,1 @@
+"""SMS Guard web application."""

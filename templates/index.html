@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card shadow-sm border-0 p-4 p-md-5" aria-labelledby="welcome">
+  <span class="badge text-bg-secondary align-self-start mb-3">Этап 2 · Каркас приложения</span>
+  <h1 id="welcome">SMS Guard</h1>
+  <p class="lead">Система обнаружения мошеннических SMS и подозрительных ссылок.</p>
+  <div class="alert alert-info" role="status">Анализ пока недоступен: ML-модели ещё не обучены и не подключены.</div>
+  <p>Сейчас доступны главная страница, состояние приложения и документация API.</p>
+  <div class="d-flex flex-wrap gap-2">
+    <a class="btn btn-primary" href="/api/v1/health/">Проверить состояние</a>
+    <a class="btn btn-outline-secondary" href="/docs">Открыть API</a>
+  </div>
+</section>
+{% endblock %}
