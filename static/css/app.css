@@ -1,3 +1,12 @@
 body { min-width: 320px; }
 main { max-width: 1000px; }
+main { max-width: 1240px; }
+.table { font-size: .9rem; }
+.text-bg-warning { color: #212529 !important; }
+progress { height: 1rem; accent-color: #276b8e; }
+canvas { max-height: 320px; }
+.card { border-color: #dbe2e9; }
+.text-secondary { color: #59636e !important; }
+a { color: #064ea6; }
+@media (max-width: 575px) { main { padding-top: 1.5rem !important; } .navbar-brand { width: 100%; } }
 .navbar a:focus-visible { outline: 3px solid #ffc107; outline-offset: 4px; }

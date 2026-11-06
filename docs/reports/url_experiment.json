@@ -1,0 +1,309 @@
+{
+  "source": "https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset",
+  "license": "CC BY 4.0",
+  "downloaded_on": "2026-11-06",
+  "archive_sha256": "0a639fd03aea6308c5b1c10c92aa23c2ce1505447a9137271865cd0badc9a59a",
+  "original_rows": 235795,
+  "invalid": 8,
+  "duplicates_removed": 2201,
+  "sample_rows": 50000,
+  "counts": {
+    "train": {
+      "rows": 33360,
+      "phishing": 13150
+    },
+    "val": {
+      "rows": 10121,
+      "phishing": 5757
+    },
+    "test": {
+      "rows": 6519,
+      "phishing": 2226
+    }
+  },
+  "domain_disjoint": true,
+  "normalization": "scheme=http, strip www for BOTH classes and inference",
+  "features": [
+    "url_length",
+    "host_length",
+    "path_length",
+    "dots",
+    "subdomains",
+    "host_hyphens",
+    "digits",
+    "host_digit_ratio",
+    "specials",
+    "ip_host",
+    "https",
+    "unusual_port",
+    "at_sign",
+    "double_slash_path",
+    "shortener",
+    "suspicious_words",
+    "punycode",
+    "mixed_scripts",
+    "brand_similarity",
+    "host_entropy",
+    "flagged_tld",
+    "query_parameters"
+  ],
+  "comparison": [
+    {
+      "name": "LR_C1",
+      "validation": {
+        "accuracy": 0.8545598261041399,
+        "precision": 0.8517484813659497,
+        "recall": 0.9011638005905854,
+        "f1": 0.8757596218771101,
+        "f2": 0.8908272948933685,
+        "roc_auc": 0.9420796775996766,
+        "pr_auc": 0.9671789381484037,
+        "average_precision": 0.9669936620526612,
+        "macro": {
+          "precision": 0.8552787071842156,
+          "recall": 0.8471217719726529,
+          "f1": 0.8501981335499441
+        },
+        "by_class": {
+          "ham": {
+            "precision": 0.8588089330024814,
+            "recall": 0.7930797433547204,
+            "f1": 0.8246366452227781,
+            "support": 4364
+          },
+          "spam": {
+            "precision": 0.8517484813659497,
+            "recall": 0.9011638005905854,
+            "f1": 0.8757596218771101,
+            "support": 5757
+          }
+        },
+        "confusion_matrix": [
+          [
+            3461,
+            903
+          ],
+          [
+            569,
+            5188
+          ]
+        ],
+        "threshold": 0.24956577538502103
+      },
+      "fit_seconds": 77.16113439999754
+    },
+    {
+      "name": "LR_C10",
+      "validation": {
+        "accuracy": 0.8563383064914534,
+        "precision": 0.854389721627409,
+        "recall": 0.900990099009901,
+        "f1": 0.8770713561041596,
+        "f2": 0.89126774115949,
+        "roc_auc": 0.9430497038077583,
+        "pr_auc": 0.9679646941238269,
+        "average_precision": 0.9677788357438915,
+        "macro": {
+          "precision": 0.8568244904433342,
+          "recall": 0.8492118231071504,
+          "f1": 0.8521320650261706
+        },
+        "by_class": {
+          "ham": {
+            "precision": 0.8592592592592593,
+            "recall": 0.7974335472043996,
+            "f1": 0.8271927739481816,
+            "support": 4364
+          },
+          "spam": {
+            "precision": 0.854389721627409,
+            "recall": 0.900990099009901,
+            "f1": 0.8770713561041596,
+            "support": 5757
+          }
+        },
+        "confusion_matrix": [
+          [
+            3480,
+            884
+          ],
+          [
+            570,
+            5187
+          ]
+        ],
+        "threshold": 0.25091728966959204
+      },
+      "fit_seconds": 72.26731529997778
+    },
+    {
+      "name": "RF_depth12",
+      "validation": {
+        "accuracy": 0.8579191779468432,
+        "precision": 0.8539583674807408,
+        "recall": 0.9049852353656418,
+        "f1": 0.8787316579524371,
+        "f2": 0.8942977788458237,
+        "roc_auc": 0.9447987004064873,
+        "pr_auc": 0.9688950158519047,
+        "average_precision": 0.968697536303166,
+        "macro": {
+          "precision": 0.8589443578697237,
+          "recall": 0.8504073747863956,
+          "f1": 0.853607241189959
+        },
+        "by_class": {
+          "ham": {
+            "precision": 0.8639303482587065,
+            "recall": 0.7958295142071494,
+            "f1": 0.8284828244274809,
+            "support": 4364
+          },
+          "spam": {
+            "precision": 0.8539583674807408,
+            "recall": 0.9049852353656418,
+            "f1": 0.8787316579524371,
+            "support": 5757
+          }
+        },
+        "confusion_matrix": [
+          [
+            3473,
+            891
+          ],
+          [
+            547,
+            5210
+          ]
+        ],
+        "threshold": 0.28814523433324807
+      },
+      "fit_seconds": 36.4853874000255
+    },
+    {
+      "name": "RF_depth24",
+      "validation": {
+        "accuracy": 0.8567335243553008,
+        "precision": 0.8565987746315615,
+        "recall": 0.8985582768803196,
+        "f1": 0.877076975245846,
+        "f2": 0.889840712835862,
+        "roc_auc": 0.9405537983727457,
+        "pr_auc": 0.9664471900213562,
+        "average_precision": 0.9660613374004199,
+        "macro": {
+          "precision": 0.8567658253363589,
+          "recall": 0.8500582401816814,
+          "f1": 0.8526990369954071
+        },
+        "by_class": {
+          "ham": {
+            "precision": 0.8569328760411563,
+            "recall": 0.8015582034830431,
+            "f1": 0.8283210987449681,
+            "support": 4364
+          },
+          "spam": {
+            "precision": 0.8565987746315615,
+            "recall": 0.8985582768803196,
+            "f1": 0.877076975245846,
+            "support": 5757
+          }
+        },
+        "confusion_matrix": [
+          [
+            3498,
+            866
+          ],
+          [
+            584,
+            5173
+          ]
+        ],
+        "threshold": 0.302381691043481
+      },
+      "fit_seconds": 22.45937640001648
+    }
+  ],
+  "selected": "RF_depth12",
+  "thresholds": {
+    "t1": 0.14407261716662403,
+    "t2": 0.28814523433324807
+  },
+  "test": {
+    "accuracy": 0.7711305414940942,
+    "precision": 0.6424689440993789,
+    "recall": 0.743486073674753,
+    "f1": 0.6892961266139108,
+    "f2": 0.7208188153310104,
+    "roc_auc": 0.8447089633158222,
+    "pr_auc": 0.8357032139809902,
+    "average_precision": 0.8349339445990973,
+    "macro": {
+      "precision": 0.7488276751945031,
+      "recall": 0.7644753918338825,
+      "f1": 0.7540701128455665
+    },
+    "by_class": {
+      "ham": {
+        "precision": 0.8551864062896272,
+        "recall": 0.7854647099930119,
+        "f1": 0.818844099077222,
+        "support": 4293
+      },
+      "spam": {
+        "precision": 0.6424689440993789,
+        "recall": 0.743486073674753,
+        "f1": 0.6892961266139108,
+        "support": 2226
+      }
+    },
+    "confusion_matrix": [
+      [
+        3372,
+        921
+      ],
+      [
+        571,
+        1655
+      ]
+    ],
+    "threshold": 0.28814523433324807
+  },
+  "prediction_ms_per_url": 0.03048829575176253,
+  "trained_at": "2026-11-06T20:42:10.735141+05:00",
+  "version": "1.0.0",
+  "eda_means_by_class": {
+    "url_length": {
+      "0": 22.23202965323726,
+      "1": 43.76212558557706
+    },
+    "host_length": {
+      "0": 15.23202965323726,
+      "1": 22.69767661950504
+    },
+    "path_length": {
+      "0": 0.0,
+      "1": 8.67396962097194
+    },
+    "dots": {
+      "0": 1.1644091869608897,
+      "1": 1.9779491790091326
+    },
+    "subdomains": {
+      "0": 0.03041535317144144,
+      "1": 0.7080395589835802
+    },
+    "host_hyphens": {
+      "0": 0.08088821145252365,
+      "1": 0.546254672786637
+    }
+  },
+  "limitations": [
+    "URL strings only; no webpage/DNS data",
+    "Remaining source/path distribution bias possible",
+    "flagged TLD list is an unvalidated heuristic"
+  ],
+  "conflicting_rows_removed": 84,
+  "clean_rows_before_sampling": 233502
+}

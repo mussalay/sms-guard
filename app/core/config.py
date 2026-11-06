@@ -16,3 +16,4 @@ class Settings(BaseSettings):
     log_dir: Path = BASE_DIR / "logs"
     log_level: str = "INFO"
     secret_key: str = ""
+    artifact_dir: Path = BASE_DIR / "ml/artifacts"

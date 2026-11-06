@@ -14,21 +14,21 @@ def test_health_reports_liveness_and_unavailable_models(client):
 
 
 def test_home_and_local_bootstrap(client):
-    response = client.get("/")
+    response = client.get("/login/")
     assert response.status_code == 200
     assert 'lang="ru"' in response.text
-    assert "Анализ пока недоступен" in response.text
+    assert "Вход в SMS Guard" in response.text
     assert "viewport" in response.text
     css = client.get("/static/vendor/bootstrap.min.css")
     assert css.status_code == 200
     assert "Bootstrap v5.3.8" in " ".join(css.text.split())
 
 
-def test_openapi_contains_only_scaffold_api(client):
+def test_openapi_contains_protected_product_api(client):
     response = client.get("/openapi.json")
     assert response.status_code == 200
-    assert set(response.json()["paths"]) == {"/api/v1/health/"}
-    assert client.post("/api/v1/check/sms/", json={"text": "test"}).status_code == 404
+    assert "/api/v1/check/sms/" in response.json()["paths"]
+    assert client.post("/api/v1/check/sms/", json={"text": "test"}).status_code in {401, 403}
 
 
 def test_sqlite_connection_and_foreign_keys(client):
@@ -63,6 +63,6 @@ def test_template_escapes_configured_name(tmp_path):
 
     settings = Settings(_env_file=None, app_name="<script>alert(1)</script>", log_dir=tmp_path)
     with TestClient(create_app(settings)) as test_client:
-        html = test_client.get("/").text
+        html = test_client.get("/login/").text
     assert "<script>alert(1)</script>" not in html
     assert "&lt;script&gt;" in html

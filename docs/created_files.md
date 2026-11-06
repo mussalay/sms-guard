@@ -1,26 +1,10 @@
 # Созданные и сохранённые файлы
 
-Обновлено06.11.2026 после заданий3–6. Исходный PDF с русским именем и его идентичная копия сохранены.
+Обновлено после MVP7–18. Исходные PDF/данные1–6 сохранены. Подробности и незакрытые критерии — completion.md.
 
-Основные новые исходники:
+Локальные артефакты вне Git: `.venv/`, `.env`, SQLite, логи; исходные ZIP/CSV и матрицы; `ml/artifacts/sms_feature_pipeline.joblib`, `sms_baseline.joblib`, `sms_model.joblib`, `url_model.joblib`, metadata. Они присутствуют в workspace и не скачиваются автоматически при клонировании.
 
-- `ml/data/load_sms.py`
-- `ml/data/custom_ru.py`
-- `ml/preprocessing.py`
-- `ml/eda.py`
-- `ml/features.py`
-- `ml/rules.py`
-- `ml/data/split_sms.py`
-- `ml/prepare_features.py`
-- `notebooks/01_eda_sms.ipynb`
-- `scripts/build_eda_notebook.py`
-- `scripts/run_notebook.py`
-
-Локальные генерируемые файлы вне Git: `.venv/`, `.env`, `sms_guard.db`, логи/кеши; `data/raw/sms_spam_collection.zip`, `SMSSpamCollection`, `readme`, `nltk_stopwords.zip`; `data/processed/sms_raw.csv`, `sms_clean.csv`, `sms_split.json`, `X_train.npz`, `X_val.npz`, `X_test.npz`, `y_train.npy`, `y_val.npy`, `y_test.npy`, `sms_feature_names.json`; `ml/artifacts/sms_feature_pipeline.joblib`. Никакого sms_model.joblib нет.
-
-Русский `data/raw/custom_ru.csv` отслеживается как test-only исключение. Полная приёмка — `03_06_verification.md`.
-
-Полный список отслеживаемых/новых файлов:
+Полный список отслеживаемых и новых файлов:
 
 ```text
 .env.example
@@ -30,18 +14,25 @@ AGENTS.md
 README.md
 alembic.ini
 app/__init__.py
+app/__main__.py
 app/accounts/__init__.py
 app/analysis/__init__.py
+app/analysis/services.py
+app/analysis/social.py
 app/api/__init__.py
 app/api/v1/__init__.py
 app/api/v1/health.py
 app/core/__init__.py
 app/core/config.py
 app/core/logging.py
+app/core/security.py
 app/dashboard/__init__.py
 app/db/__init__.py
+app/db/models.py
 app/db/session.py
 app/main.py
+app/seed_demo.py
+app/web.py
 data/processed/.gitkeep
 data/raw/.gitkeep
 data/raw/custom_ru.csv
@@ -53,6 +44,7 @@ docs/04_preprocessing.md
 docs/05_eda.md
 docs/06_feature_results.md
 docs/06_text_features.md
+docs/completion.md
 docs/created_files.md
 docs/datasets/custom_ru.md
 docs/datasets/uci_sms.md
@@ -65,12 +57,37 @@ docs/figures/05_entity_rates.png
 docs/figures/05_message_lengths.png
 docs/figures/05_top_bigrams.png
 docs/figures/05_top_words.png
+docs/figures/model_confusion.png
+docs/figures/sms_roc_pr.png
+docs/figures/url_importance.png
+docs/figures/url_roc_pr.png
 docs/implementation_plan.md
 docs/reports/03_sms_loading.json
 docs/reports/04_preprocessing.json
 docs/reports/05_eda.json
 docs/reports/06_features.json
+docs/reports/07_final_test.json
+docs/reports/07_model_metadata.json
+docs/reports/07_reproduction.json
+docs/reports/07_selection.json
+docs/reports/07_test_claim.json
+docs/reports/browser_smoke.json
+docs/reports/final_coverage.json
+docs/reports/final_tests.xml
+docs/reports/model_restart.json
+docs/reports/mvp_acceptance.json
+docs/reports/risk_calibration.json
+docs/reports/russian_rules_test.json
+docs/reports/sms_errors.json
+docs/reports/url_experiment.json
+docs/reports/url_synthetic20.json
+docs/reports/url_test_claim.json
 docs/requirements_matrix.md
+docs/screenshots/01_login.png
+docs/screenshots/02_dashboard.png
+docs/screenshots/03_sms_result.png
+docs/screenshots/04_url_result.png
+docs/screenshots/05_history.png
 docs/technical_specification.pdf
 docs/technical_specification.txt
 docs/ТЗ_Интеллектуальная_система_обнаружения_мошеннических_SMS_и_подозрительных (1).pdf
@@ -78,6 +95,7 @@ logs/.gitkeep
 migrations/env.py
 migrations/script.py.mako
 migrations/versions/.gitkeep
+migrations/versions/b2a3401dc933_users_sessions_checks_and_model_versions.py
 ml/__init__.py
 ml/artifacts/.gitkeep
 ml/data/__init__.py
@@ -86,24 +104,38 @@ ml/data/load_sms.py
 ml/data/split_sms.py
 ml/eda.py
 ml/features.py
+ml/inference.py
 ml/prepare_features.py
 ml/preprocessing.py
 ml/resources/NLTK_STOPWORDS_README
 ml/resources/provenance.json
 ml/resources/stopwords_en.txt
 ml/resources/stopwords_ru.txt
+ml/risk.py
 ml/rules.py
+ml/sms_experiment.py
+ml/url_experiment.py
+ml/url_features.py
 notebooks/.gitkeep
 notebooks/01_eda_sms.ipynb
+notebooks/02_models.ipynb
 pyproject.toml
 requirements.txt
 risk/__init__.py
+risk_config.yaml
+scripts/browser_smoke.py
 scripts/build_eda_notebook.py
+scripts/calibrate_risk.py
 scripts/run_notebook.py
+scripts/verify_mvp.py
 static/css/app.css
+static/js/app.js
 static/vendor/.gitkeep
 static/vendor/BOOTSTRAP-LICENSE
+static/vendor/CHART-LICENSE
 static/vendor/bootstrap.min.css
+static/vendor/chart.umd.min.js
+templates/app.html
 templates/base.html
 templates/index.html
 tests/conftest.py
@@ -111,5 +143,6 @@ tests/test_data_loading.py
 tests/test_eda.py
 tests/test_features.py
 tests/test_preprocessing.py
+tests/test_product.py
 tests/test_scaffold.py
 ```

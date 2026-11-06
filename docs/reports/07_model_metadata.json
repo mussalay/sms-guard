@@ -1,0 +1,128 @@
+{
+  "version": "1.0.0",
+  "trained_at": "2026-11-06T20:38:57.517951+05:00",
+  "algorithm": "CalibratedLinearSVM",
+  "parameter": 10.0,
+  "threshold": 0.11356167328234269,
+  "languages": [
+    "en"
+  ],
+  "labels": {
+    "0": "ham",
+    "1": "spam"
+  },
+  "feature_count": 59924,
+  "validation_metrics": {
+    "accuracy": 0.987012987012987,
+    "precision": 0.9183673469387755,
+    "recall": 0.9782608695652174,
+    "f1": 0.9473684210526315,
+    "f2": 0.9656652360515021,
+    "roc_auc": 0.997515069898679,
+    "pr_auc": 0.9890272919532216,
+    "average_precision": 0.9890671423686545,
+    "macro": {
+      "precision": 0.9576955782312926,
+      "recall": 0.9832307297678594,
+      "f1": 0.969980506822612
+    },
+    "by_class": {
+      "ham": {
+        "precision": 0.9970238095238095,
+        "recall": 0.9882005899705014,
+        "f1": 0.9925925925925926,
+        "support": 678
+      },
+      "spam": {
+        "precision": 0.9183673469387755,
+        "recall": 0.9782608695652174,
+        "f1": 0.9473684210526315,
+        "support": 92
+      }
+    },
+    "confusion_matrix": [
+      [
+        670,
+        8
+      ],
+      [
+        2,
+        90
+      ]
+    ],
+    "threshold": 0.11356167328234269
+  },
+  "test_metrics": {
+    "accuracy": 0.9857328145265889,
+    "precision": 0.9361702127659575,
+    "recall": 0.946236559139785,
+    "f1": 0.9411764705882353,
+    "f2": 0.944206008583691,
+    "roc_auc": 0.9960351444793352,
+    "pr_auc": 0.9855890864817883,
+    "average_precision": 0.9856357946078371,
+    "macro": {
+      "precision": 0.9643923441968636,
+      "recall": 0.9686935008088305,
+      "f1": 0.9665291947037118
+    },
+    "by_class": {
+      "ham": {
+        "precision": 0.9926144756277696,
+        "recall": 0.9911504424778761,
+        "f1": 0.9918819188191882,
+        "support": 678
+      },
+      "spam": {
+        "precision": 0.9361702127659575,
+        "recall": 0.946236559139785,
+        "f1": 0.9411764705882353,
+        "support": 93
+      }
+    },
+    "confusion_matrix": [
+      [
+        672,
+        6
+      ],
+      [
+        5,
+        88
+      ]
+    ],
+    "threshold": 0.11356167328234269
+  },
+  "model_sha256": "d2b04c54b3ba884b2892d9b829e60671d3dd1a8e0d354dca07f46d28cf262968",
+  "inputs": {
+    "data/processed/sms_clean.csv": "c09f1ff46b546695394c85239b0a3404444a0acd04e1e7f284d1f13c6079246b",
+    "data/processed/sms_split.json": "6025dcfc57ab9f065ecf0889036ef94dd3330963841e9e72b6e22c71a8c66c8b",
+    "data/processed/X_train.npz": "9e14d87f6ac11f82c59a895b26b152fd70e832b0b967ce331571ee0dca98e3d8",
+    "data/processed/X_val.npz": "08aa0cb8e12121b8023c3c4eae8927d7d1417234c878c94d4926059d857fb8ca",
+    "ml/artifacts/sms_feature_pipeline.joblib": "c70477ec010540272c78f930e1356382cb55ae49da771e361097c5a751e235eb",
+    "ml/features.py": "caa474580963eae28391c91943fa98d3435310848f572ab3fdc0eb13f13e3408",
+    "ml/preprocessing.py": "ffeee7c99b802937f27449e7d81ccc59c5a27549456df47fd7c51b19aa18bd8e",
+    "ml/rules.py": "d06c9146a70ddb0a33ad9ab73393677caedf19323c36e972d04a22418d89a0eb"
+  },
+  "source": {
+    "source_url": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+    "source_page": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+    "doi": "10.24432/C5CC84",
+    "citation": "Almeida, T. & Hidalgo, J. (2011). SMS Spam Collection. UCI.",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_checked_on": "2026-11-06",
+    "downloaded_at": "2026-11-06T00:51:09.635867+05:00",
+    "archive_sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3"
+  },
+  "versions": {
+    "python": "3.13.7",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.4"
+  },
+  "fit_scope": "train only, no train+val refit",
+  "limitations": [
+    "English spam detection, not guaranteed fraud detection",
+    "Russian ML unsupported; kk excluded by DEV-01"
+  ],
+  "test_evaluated_at": "2026-11-06T20:45:57.485878+05:00"
+}

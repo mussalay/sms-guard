@@ -1,0 +1,21 @@
+{
+  "browser": "Microsoft Edge headless",
+  "screenshots": 5,
+  "widths": [
+    {
+      "width": 360,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1366,
+      "horizontal_overflow": false
+    }
+  ],
+  "page_errors": [],
+  "external_navigation_blocked": true,
+  "logout_protection": true
+}

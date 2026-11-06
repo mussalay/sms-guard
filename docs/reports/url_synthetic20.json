@@ -1,0 +1,105 @@
+{
+  "note": "Synthetic URL strings, no pages opened; expectations are not model guarantees",
+  "items": [
+    {
+      "url": "google.com",
+      "probability": 0.27313347177139535,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "microsoft.com",
+      "probability": 0.27973093804657667,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "apple.com",
+      "probability": 0.27805902128021687,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "amazon.com",
+      "probability": 0.2725308010844964,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "paypal.com",
+      "probability": 0.27899531672295724,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "github.com",
+      "probability": 0.2923966488642674,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "wikipedia.org",
+      "probability": 0.27794000718679385,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "python.org",
+      "probability": 0.289063521019164,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "mozilla.org",
+      "probability": 0.28954431921003027,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "example.com",
+      "probability": 0.2895443192100303,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-0.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-1.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-2.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-3.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-4.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-5.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-6.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-7.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-8.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    },
+    {
+      "url": "http://verify-bank-9.test/login?verify=1",
+      "probability": 1.0,
+      "expected": "hypothesis only"
+    }
+  ]
+}

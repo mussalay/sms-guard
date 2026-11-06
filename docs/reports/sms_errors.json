@@ -1,0 +1,75 @@
+{
+  "scope": "cached final predictions; no test retuning",
+  "errors": [
+    {
+      "kind": "FN",
+      "id": 1639,
+      "text": "<num> a$networks allow companies to bill for sms, so they are responsible for their \"suppliers\", just as a shop has to give a guarantee on what they sell. b. g.",
+      "probability": 0.02214826633073172,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FN",
+      "id": 2775,
+      "text": "how come it takes so little time for a child who is afraid of the dark to become a teenager who wants to stay out all night?",
+      "probability": 0.004342119885727436,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FN",
+      "id": 4950,
+      "text": "hi this is amy, we will be sending you a free phone number in a couple of days, which will give you an access to all the adult parties...",
+      "probability": 0.036056267944522206,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FN",
+      "id": 5373,
+      "text": "dating:i have had two of these. only started after i sent a text to talk sport radio last week. any connection do you think or coincidence?",
+      "probability": 0.09542904342065729,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FN",
+      "id": 5452,
+      "text": "latest news! police station toilet stolen, cops have nothing to go on!",
+      "probability": 0.0805496626581696,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FP",
+      "id": 1507,
+      "text": "total video converter free download type this in google search:)",
+      "probability": 0.13647833510260282,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FP",
+      "id": 1673,
+      "text": "glad to see your reply.",
+      "probability": 0.5498133396596463,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FP",
+      "id": 2290,
+      "text": "dont you have message offer",
+      "probability": 0.12763155254677955,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FP",
+      "id": 3850,
+      "text": "can you plz tell me the ans. bslvyl sent via <url>",
+      "probability": 0.3272727521784488,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    },
+    {
+      "kind": "FP",
+      "id": 3940,
+      "text": "when the first strike is a red one. the bird + antelope begin toplay in the fieldof selfindependence believe this + the flower of contention will grow.random!",
+      "probability": 0.4001390759516299,
+      "comment": "Возможное пересечение лексики/шаблонов классов; требует экспертной проверки, не доказанное объяснение модели"
+    }
+  ]
+}

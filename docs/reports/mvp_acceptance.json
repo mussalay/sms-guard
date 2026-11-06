@@ -1,0 +1,42 @@
+{
+  "analysis_requests": 100,
+  "analysis_ms_p50": 13.24929999827873,
+  "analysis_ms_p95": 93.39433997956803,
+  "analysis_ms_max": 116.64920000475831,
+  "all_analysis_under_500ms": true,
+  "dashboard_1000_rows_api_seconds": 0.02108180001960136,
+  "dashboard_api_under_2s": true,
+  "scenarios": [
+    {
+      "type": "sms",
+      "category": "SAFE",
+      "risk": 0,
+      "p_sms": 0.0027561219939951603
+    },
+    {
+      "type": "sms",
+      "category": "SUSPICIOUS",
+      "risk": 67,
+      "p_sms": null
+    },
+    {
+      "type": "sms",
+      "category": "FRAUDULENT",
+      "risk": 85,
+      "p_sms": 0.9993674072373034
+    },
+    {
+      "type": "url",
+      "category": "DANGEROUS",
+      "risk": 99,
+      "p_sms": null
+    },
+    {
+      "type": "sms",
+      "category": "FRAUDULENT",
+      "risk": 70,
+      "p_sms": null
+    }
+  ],
+  "notes": "Temporary test DB; 900 explicitly synthetic load fixtures, not fabricated model outcomes; browser 1000-row render not timed"
+}

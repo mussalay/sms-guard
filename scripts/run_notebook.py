@@ -31,14 +31,14 @@ def main():
     os.environ["MPLCONFIGDIR"] = str(ROOT / ".cache/matplotlib")
     os.environ["IPYTHONDIR"] = str(ROOT / ".cache/ipython")
     os.environ["PYDEVD_DISABLE_FILE_VALIDATION"] = "1"
-    notebook_path = ROOT / "notebooks/01_eda_sms.ipynb"
+    notebook_path = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "notebooks/01_eda_sms.ipynb")
     notebook = nbformat.read(notebook_path, as_version=4)
     # NotebookClient's working directory is explicit; selected kernel uses sys.executable.
     NotebookClient(
         notebook, timeout=180, kernel_name="sms-guard", resources={"metadata": {"path": str(ROOT)}}
     ).execute()
     nbformat.write(notebook, notebook_path)
-    print("Executed notebooks/01_eda_sms.ipynb; no cell errors")
+    print(f"Executed {notebook_path.name}; no cell errors")
 
 
 if __name__ == "__main__":

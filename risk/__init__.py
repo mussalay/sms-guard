@@ -1,1 +1,1 @@
-"""Reserved package; implementation awaits approval for tasks 3?18."""
+"""Risk implementation is in ml.risk; configuration is risk_config.yaml."""

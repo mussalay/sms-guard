@@ -1,1 +1,1 @@
-"""Offline SMS data preparation and features; classifier training awaits task-7 approval."""
+"""Offline SMS/URL models, features and training protocols."""

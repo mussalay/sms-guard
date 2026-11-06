@@ -1,0 +1,51 @@
+{
+  "evaluated_at": "2026-11-06T20:45:57.485878+05:00",
+  "model_sha256": "d2b04c54b3ba884b2892d9b829e60671d3dd1a8e0d354dca07f46d28cf262968",
+  "algorithm": "CalibratedLinearSVM",
+  "metrics": {
+    "accuracy": 0.9857328145265889,
+    "precision": 0.9361702127659575,
+    "recall": 0.946236559139785,
+    "f1": 0.9411764705882353,
+    "f2": 0.944206008583691,
+    "roc_auc": 0.9960351444793352,
+    "pr_auc": 0.9855890864817883,
+    "average_precision": 0.9856357946078371,
+    "macro": {
+      "precision": 0.9643923441968636,
+      "recall": 0.9686935008088305,
+      "f1": 0.9665291947037118
+    },
+    "by_class": {
+      "ham": {
+        "precision": 0.9926144756277696,
+        "recall": 0.9911504424778761,
+        "f1": 0.9918819188191882,
+        "support": 678
+      },
+      "spam": {
+        "precision": 0.9361702127659575,
+        "recall": 0.946236559139785,
+        "f1": 0.9411764705882353,
+        "support": 93
+      }
+    },
+    "confusion_matrix": [
+      [
+        672,
+        6
+      ],
+      [
+        5,
+        88
+      ]
+    ],
+    "threshold": 0.11356167328234269
+  },
+  "rows": 771,
+  "test_probability_sha256": "c5f882065a6ae37d9fade17c0f3c41557f3736cafe2dfc25ece1c2afa1c3131e",
+  "batch_prediction_seconds": 0.4717528999899514,
+  "batch_ms_per_sms": 0.61187146561602,
+  "targets_met": true,
+  "no_refit_or_test_tuning": true
+}

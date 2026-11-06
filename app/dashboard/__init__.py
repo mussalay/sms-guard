@@ -1,1 +1,1 @@
-"""Reserved package; implementation awaits approval for tasks 3?18."""
+"""SQL aggregation endpoint and authenticated dashboard are implemented in app.web."""

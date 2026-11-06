@@ -1,1 +1,1 @@
-"""Reserved package; implementation awaits approval for tasks 3?18."""
+"""Combined local analysis services and runtime social-engineering rules."""

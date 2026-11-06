@@ -1,0 +1,12 @@
+weights:
+  sms: 0.5
+  url: 0.3
+  se: 0.2
+levels:
+  medium: 22
+  high: 70
+overrides:
+  code_request: 70
+  both_models: 85
+  sms_probability: 0.8
+  url_structural: 60

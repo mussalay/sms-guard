@@ -1,1 +1,1 @@
-"""Reserved package; implementation awaits approval for tasks 3?18."""
+"""Authentication endpoints live in app.web; password primitives in app.core.security."""
