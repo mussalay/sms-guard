@@ -3,9 +3,11 @@
 <div id="page-data" data-path="{{ path }}" data-id="{{ check_id or '' }}" data-admin="{{ 'true' if user and user.is_staff else 'false' }}"></div>
 <div id="error" class="alert alert-danger d-none" role="alert"></div>
 {% if path in ['/login/', '/register/'] %}
-<section class="card shadow-sm p-4 mx-auto" style="max-width:460px">
+<div class="auth-layout">
+<aside class="auth-story"><span class="eyebrow">SMS GUARD / ЛИЧНАЯ БЕЗОПАСНОСТЬ</span><h2>Проверка SMS<br>и интернет-ссылок.</h2><p>Проверьте сообщение или ссылку,<br>прежде чем действовать.</p><div class="auth-story-bottom"><span class="story-rule"></span><span>Анализ сообщения · Объяснение риска · История</span></div></aside>
+<section class="auth-card">
  <h1 class="h3">{{ 'Вход в SMS Guard' if path == '/login/' else 'Регистрация' }}</h1>
- <p class="text-secondary">Проверяйте сообщения, сохраняя контроль над своими данными.</p>
+ <p class="text-secondary">{{ 'Войдите, чтобы продолжить проверку сообщений.' if path == '/login/' else 'Создайте личное пространство для ваших проверок.' }}</p>
  <form id="auth-form" class="vstack gap-3" novalidate>
   <label>Логин<input class="form-control" name="username" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" autocomplete="username"></label>
   {% if path == '/register/' %}<label>E-mail<input class="form-control" type="email" name="email" required autocomplete="email"></label>{% endif %}
@@ -14,14 +16,15 @@
   <button class="btn btn-primary">{{ 'Войти' if path == '/login/' else 'Зарегистрироваться' }}</button>
  </form>
  <a class="mt-3" href="{{ '/register/' if path == '/login/' else '/login/' }}">{{ 'Создать аккаунт' if path == '/login/' else 'Уже есть аккаунт' }}</a>
-</section>
+</section></div>
 {% elif path in ['/check/sms/', '/check/url/'] %}
-<section class="card shadow-sm p-4">
+<section class="card check-card p-4 p-md-5">
+ <div class="eyebrow mb-3">АНАЛИЗ СООБЩЕНИЯ И ССЫЛОК</div>
  <h1 class="h3">{{ 'Проверка SMS' if path == '/check/sms/' else 'Проверка URL' }}</h1>
  <p class="text-secondary">Ссылки анализируются как строки: сайт не открывается. Русский — правила и URL; английский — также ML.</p>
  <form id="check-form" class="vstack gap-3" novalidate>
  {% if path == '/check/sms/' %}
-  <label for="check-input">Текст сообщения</label><textarea class="form-control" id="check-input" rows="5" required maxlength="1000"></textarea>
+  <label for="check-input">Текст сообщения</label><textarea class="form-control" id="check-input" rows="6" required maxlength="1000" placeholder="Вставьте сообщение, которое вызывает сомнения…"></textarea>
   <small id="char-count" class="text-end">0 / 1000</small>
   <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-sm btn-outline-secondary" data-example="safe">Обычное</button><button type="button" class="btn btn-sm btn-outline-secondary" data-example="suspicious">Подозрительное</button><button type="button" class="btn btn-sm btn-outline-secondary" data-example="fraud">Мошенническое</button></div>
  {% else %}<label for="check-input">Интернет-адрес</label><input class="form-control" id="check-input" required maxlength="2048" placeholder="https://example.com/about">{% endif %}
@@ -33,8 +36,8 @@
 {% elif path.startswith('/checks/') %}
 <h1 class="h3">Результат проверки</h1><section id="result" aria-live="polite"></section>
 {% elif path == '/history/' %}
-<h1 class="h3">История ваших проверок</h1>
-<form id="filter-form" class="row g-2 mb-4">
+<div class="page-heading"><span class="eyebrow">ВАШИ ДАННЫЕ</span><h1>История ваших проверок</h1><p>Результаты, к которым можно вернуться.</p></div>
+<form id="filter-form" class="row g-3 filter-panel mb-4">
  <label class="col-6 col-md-3">С даты<input type="date" name="date_from" class="form-control"></label>
  <label class="col-6 col-md-3">По дату<input type="date" name="date_to" class="form-control"></label>
  <label class="col-6 col-md-2">Тип<select name="type" class="form-select"><option value="">Все</option><option>SMS</option><option>URL</option></select></label>
@@ -42,7 +45,7 @@
  <label class="col-6 col-md-2">Риск<select name="risk_level" class="form-select"><option value="">Все</option><option>LOW</option><option>MEDIUM</option><option>HIGH</option></select></label>
  <div class="col-12"><button class="btn btn-primary">Применить</button></div>
 </form>
-<div id="history-table" class="table-responsive"></div><div id="pagination" class="d-flex gap-3 mt-3"></div>
+<div id="history-table" class="table-responsive surface-table"></div><div id="pagination" class="d-flex gap-3 mt-3"></div>
 {% elif path == '/profile/' %}
 <section class="card shadow-sm p-4"><h1 class="h3">Профиль</h1><p id="profile-info"></p>
 <form id="profile-form" class="vstack gap-3">
@@ -53,10 +56,10 @@
  <button class="btn btn-primary align-self-start">Сохранить</button>
 </form><hr><button id="clear-history" class="btn btn-outline-danger align-self-start">Удалить всю мою историю</button></section>
 {% else %}
-<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4"><div><h1 class="h3 mb-1">Dashboard</h1><span class="text-secondary">Статистика проверок и обнаруженных признаков</span></div><div class="d-flex gap-2"><select id="period" class="form-select" aria-label="Период"><option value="7">7 дней</option><option value="30" selected>30 дней</option><option value="90">90 дней</option></select>{% if user.is_staff %}<select id="scope" class="form-select" aria-label="Область"><option value="mine">Мои проверки</option><option value="all">Вся система</option></select>{% endif %}</div></div>
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4"><div><span class="eyebrow">ОБЗОР АКТИВНОСТИ</span><h1 class="mb-1">Dashboard</h1><span class="text-secondary">Ваши проверки и обнаруженные признаки</span></div><div class="d-flex gap-2"><select id="period" class="form-select" aria-label="Период"><option value="7">7 дней</option><option value="30" selected>30 дней</option><option value="90">90 дней</option></select>{% if user.is_staff %}<select id="scope" class="form-select" aria-label="Область"><option value="mine">Мои проверки</option><option value="all">Вся система</option></select>{% endif %}</div></div>
 <div id="counters" class="row g-3 mb-4"></div>
 <div id="empty" class="alert alert-info d-none">Проверок пока нет. <a href="/check/sms/">Проверьте первое сообщение</a>.</div>
 <div class="row g-4"><section class="col-md-6"><div class="card p-3 h-100"><h2 class="h5">Категории</h2><canvas id="categories-chart" aria-label="Распределение категорий"></canvas></div></section><section class="col-md-6"><div class="card p-3 h-100"><h2 class="h5">Проверки по дням</h2><canvas id="timeline-chart" aria-label="Число проверок по дням"></canvas></div></section><section class="col-md-6"><div class="card p-3"><h2 class="h5">Топ-5 признаков</h2><canvas id="features-chart"></canvas></div></section><section class="col-md-6"><div class="card p-3"><h2 class="h5">Уровни риска</h2><canvas id="levels-chart"></canvas></div></section></div>
-<h2 class="h5 mt-4">Последние проверки</h2><div id="recent" class="table-responsive"></div><div id="model-info" class="mt-4"></div>
+<h2 class="h5 mt-4">Последние проверки</h2><div id="recent" class="table-responsive surface-table"></div><div id="model-info" class="mt-4"></div>
 {% endif %}
 {% endblock %}

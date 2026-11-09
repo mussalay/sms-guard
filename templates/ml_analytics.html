@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}ML Analytics · {{ app_name }}{% endblock %}
+{% block content %}
+<div id="page-data" data-path="/ml-analytics/"></div>
+<div id="error" class="alert alert-danger d-none" role="alert"></div>
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+  <div><h1>ML Analytics</h1><p class="text-secondary mb-0">Результаты обучения и оценки моделей · сохранённые эксперименты</p></div>
+  <a href="/" class="btn btn-outline-secondary">Пользовательский Dashboard</a>
+</div>
+<div class="alert alert-warning">
+  <strong>Ограничения качества.</strong> URL-модель не достигла целевых test-показателей, возможны ложные тревоги.
+  Русский SMS обрабатывается правилами и URL, без SMS ML. Казахский язык не поддерживается (DEV-01).
+</div>
+<nav class="nav nav-pills flex-wrap gap-2 mb-4" aria-label="Разделы ML Analytics">
+  <a class="nav-link active" href="#sms">SMS-модель</a><a class="nav-link" href="#url">URL-модель</a>
+  <a class="nav-link" href="#datasets">Dataset Overview</a><a class="nav-link" href="#model-info">Model Information</a>
+</nav>
+{% if report_error %}
+<div class="alert alert-danger" role="alert">{{ report_error }}. Метрики не подменяются нулями или демонстрационными значениями.</div>
+{% else %}
+<p class="small text-secondary">Validation — выбор модели и порогов. Test — однократная итоговая оценка выбранного артефакта.
+  Просмотр этой страницы не выполняет обучение или повторную оценку. PR-AUC — трапецеидальная площадь, не Average Precision.</p>
+{% for kind, model in analytics.items() %}
+<section id="{{ kind }}" class="mb-5" aria-labelledby="{{ kind }}-heading">
+  <div class="card shadow-sm p-3 p-md-4 mb-3">
+    <div class="d-flex flex-wrap justify-content-between gap-2">
+      <h2 class="h3" id="{{ kind }}-heading">{{ kind|upper }} · {{ model.algorithm }}</h2>
+      <span class="badge text-bg-{{ 'success' if model.targets_met else 'warning' }} align-self-start">{{ kind|upper }}: цели test {{ 'достигнуты' if model.targets_met else 'не достигнуты' }}</span>
+    </div>
+    <p>{{ model.selection_note }}</p>
+    <div class="row g-3"><div class="col-md-7"><h3 class="h6">Параметры из metadata</h3>
+      <details><summary>Показать параметры</summary><pre class="analytics-parameters mt-2">{{ model.parameters|tojson(indent=2) }}</pre></details>
+    </div><div class="col-md-5"><h3 class="h6">Пороги, подобранные на validation</h3>
+      {% for name, value in model.thresholds.items() %}<div class="text-break"><strong>{{ name }}</strong> = {{ value }}</div>{% endfor %}
+      {% if kind == 'url' %}<small>SAFE: P &lt; t1 · SUSPICIOUS: t1 ≤ P &lt; t2 · DANGEROUS: P ≥ t2</small>{% endif %}
+    </div></div>
+  </div>
+  <div class="row g-3">
+    <div class="col-lg-7"><div class="card p-3 h-100"><h3 class="h5">Выбранная модель: validation и test</h3>
+      <div class="analytics-chart"><canvas id="{{ kind }}-metrics" aria-label="Метрики {{ kind }}: validation и test" role="img"></canvas></div>
+      <div class="table-responsive mt-3"><table class="table table-sm"><caption>Метрики выбранного артефакта, положительный класс {{ model.dataset.labels[1] }}</caption>
+        <thead><tr><th>Метрика</th><th>Validation</th><th>Test</th></tr></thead><tbody>
+        {% for metric in metrics %}<tr><th>{{ metric|upper }}</th><td>{{ '%.6f'|format(model.validation[metric]) }}</td><td>{{ '%.6f'|format(model.test[metric]) }}</td></tr>{% endfor %}
+        </tbody></table></div>
+      <p class="small mb-0">{{ 'Цели SMS: Precision, Recall, F1 ≥ 0.90.' if kind == 'sms' else 'Цели URL: Precision, Recall ≥ 0.85; ROC-AUC ≥ 0.90.' }}</p>
+    </div></div>
+    <div class="col-lg-5"><div class="card p-3 h-100"><h3 class="h5">Confusion Matrix · test</h3>
+      <p class="small text-secondary">Строки: факт. Столбцы: прогноз. Абсолютные количества, не проценты.</p>
+      <div class="analytics-chart"><canvas id="{{ kind }}-matrix" aria-label="Матрица ошибок {{ kind }} test" role="img"></canvas></div>
+      <div class="table-responsive mt-3"><table class="table table-bordered table-sm text-center">
+        <caption>Матрица ошибок test; доступна также без JavaScript</caption>
+        <thead><tr><th>Факт / Прогноз</th><th>{{ model.dataset.labels[0] }}</th><th>{{ model.dataset.labels[1] }}</th></tr></thead>
+        <tbody>{% for row in model.test.confusion_matrix %}<tr><th>{{ model.dataset.labels[loop.index0] }}</th>{% for n in row %}<td>{{ n }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+      </table></div>
+    </div></div>
+  </div>
+  <div class="card p-3 p-md-4 mt-3"><h3 class="h5">Сравнение алгоритмов · только validation</h3>
+    <p class="small text-secondary">{{ 'Лучший validation-вариант каждого из NB, LR, SVM; полный поиск — 3 конфигурации каждого.' if kind == 'sms' else 'Все 4 сохранённые конфигурации LR/RF; название содержит C или max_depth.' }} Каждая строка использует свой validation-порог, а не общий test-порог.</p>
+    <div class="analytics-chart"><canvas id="{{ kind }}-comparison" aria-label="Сравнение {{ kind }} validation" role="img"></canvas></div>
+    <div class="table-responsive mt-3"><table class="table table-sm align-middle"><caption>Сохранённое сравнение validation; test других кандидатов не запускался</caption>
+      <thead><tr><th>Алгоритм / вариант</th>{% for metric in metrics %}<th>{{ metric|upper }}</th>{% endfor %}<th>Порог</th><th>Fit, с</th></tr></thead>
+      <tbody>{% for row in model.comparison %}<tr><th>{{ row.algorithm }}{% if row.parameters is defined %}<br><small>{{ row.parameters }}</small>{% endif %}</th>
+        {% for metric in metrics %}<td>{{ '%.6f'|format(row.validation[metric]) }}</td>{% endfor %}<td>{{ '%.6f'|format(row.threshold) }}</td><td>{{ '%.3f'|format(row.fit_seconds) }}</td></tr>{% endfor %}</tbody>
+    </table></div>
+  </div>
+  <div class="card p-3 p-md-4 mt-3"><h3 class="h5">ROC и Precision–Recall · validation</h3>
+    {% if kind in available_figures %}
+    <p class="small text-secondary">Сохранённый график реальных validation-предсказаний. {{ 'NB, LR и SVM.' if kind == 'sms' else 'На графике LR C=1 и RF depth=12; LR C=10 здесь не изображён.' }} Числовые точки кривых в JSON не сохранены; интерактивные кривые из итоговых AUC не строятся.</p>
+    <img class="img-fluid rounded border" src="/api/v1/ml/figures/{{ kind }}/" alt="Реальные ROC и PR кривые {{ kind }} на validation" loading="lazy">
+    {% else %}<p>Сохранённый график недоступен. Одних AUC недостаточно для восстановления кривых.</p>{% endif %}
+  </div>
+  <p class="alert alert-secondary mt-3">{{ model.limitations }}</p>
+</section>
+{% endfor %}
+<section id="datasets" class="mb-5"><h2>Dataset Overview</h2><p class="text-secondary">Источники, очистка и разбиение — из сохранённых отчётов.</p>
+<div class="row g-3">{% for kind, model in analytics.items() %}<div class="col-lg-6"><div class="card p-3 h-100">
+  <h3 class="h5">{{ model.dataset.name }}</h3><p class="small text-break">{{ model.dataset.source }}</p>
+  <p>Лицензия: {{ model.dataset.license }} · Исходно: {{ model.dataset.raw_rows }} · После очистки: {{ model.dataset.clean_rows }}{% if model.dataset.sample_rows is defined %} · Подвыборка: {{ model.dataset.sample_rows }}{% endif %} · Признаков: {{ model.dataset.feature_count }}</p>
+  <div class="table-responsive"><table class="table table-sm"><caption>Части корпуса {{ kind|upper }}</caption><thead><tr><th>Часть</th><th>Строк</th><th>{{ model.dataset.labels[0] }}</th><th>{{ model.dataset.labels[1] }}</th></tr></thead>
+    <tbody>{% for name, counts in model.dataset.splits.items() %}<tr><th>{{ 'validation' if name == 'val' else name }}</th><td>{{ counts.rows }}</td><td>{{ counts.classes['0'] }}</td><td>{{ counts.classes['1'] }}</td></tr>{% endfor %}</tbody></table></div>
+  <p class="small mb-0">{{ model.dataset.split_note }}</p>
+</div></div>{% endfor %}</div>
+<p class="alert alert-info mt-3">Английский — основной язык SMS ML. Русский искусственный корпус не использовался для обучения, настройки правил или порога. Казахский исключён DEV-01.</p>
+</section>
+<section id="model-info"><h2>Model Information</h2><div class="row g-3">
+{% for kind, model in analytics.items() %}<div class="col-lg-6"><div class="card p-3 h-100"><h3 class="h5">{{ kind|upper }} · {{ model.algorithm }}</h3>
+  <dl class="mb-0">{% for name, value in model.information.items() %}<dt>{{ name }}</dt><dd class="text-break">{{ value if value is not none else 'Не указано в metadata' }}</dd>{% endfor %}</dl>
+</div></div>{% endfor %}</div><p class="small text-secondary mt-3">Это сохранённые результаты эксперимента, не статистика пользовательских проверок. Источники: отчёты selection/final test, URL experiment, подготовка SMS и sidecar metadata. Сырые SMS, URL, пути и содержимое joblib через API не передаются.</p></section>
+{% endif %}
+{% endblock %}
+{% block scripts %}{% if analytics %}<script src="{{ url_for('static', path='/js/ml_analytics.js') }}" defer></script>{% endif %}{% endblock %}

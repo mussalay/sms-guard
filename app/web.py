@@ -10,7 +10,7 @@ from datetime import datetime, timedelta, timezone
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Request
-from fastapi.responses import JSONResponse, RedirectResponse, Response
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import delete, func, select
 from sqlalchemy.exc import IntegrityError
@@ -27,6 +27,7 @@ from app.db.models import (
     User,
     UserProfile,
 )
+from app.ml_analytics import FIGURES, ReportUnavailable, load_analytics
 
 router = APIRouter()
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -433,6 +434,23 @@ def stats(request: Request, user=Depends(current_user), session=Depends(db)):
     }
 
 
+@router.get("/api/v1/ml/analytics/")
+def ml_analytics(user=Depends(current_user)):
+    try:
+        return JSONResponse(load_analytics(), headers={"Cache-Control": "no-store"})
+    except ReportUnavailable as error:
+        fail(503, "ML_REPORT_UNAVAILABLE", str(error))
+
+
+@router.get("/api/v1/ml/figures/{figure}/")
+def ml_figure(figure: str, user=Depends(current_user)):
+    path = FIGURES.get(figure)
+    if path is None or not path.is_file():
+        fail(404, "NOT_FOUND", "График эксперимента недоступен")
+    return FileResponse(path, media_type="image/png", headers={"Cache-Control": "no-store"})
+
+
+@router.get("/ml-analytics/")
 @router.get("/login/")
 @router.get("/register/")
 @router.get("/")
@@ -453,16 +471,27 @@ def page(request: Request, check_id: int | None = None, session=Depends(db)):
     if check_id is not None:
         detail(check_id, user, session)
     token = request.cookies.get("sg_csrf") or new_token()
+    analytics, report_error = None, None
+    if request.url.path == "/ml-analytics/":
+        try:
+            analytics = load_analytics()
+        except ReportUnavailable as error:
+            report_error = str(error)
     response = templates.TemplateResponse(
         request=request,
-        name="app.html",
+        name="ml_analytics.html" if request.url.path == "/ml-analytics/" else "app.html",
         context={
             "app_name": request.app.state.settings.app_name,
             "path": request.url.path,
             "user": user,
             "csrf_token": token,
             "check_id": check_id,
+            "analytics": analytics,
+            "report_error": report_error,
+            "metrics": ("accuracy", "precision", "recall", "f1", "f2", "roc_auc", "pr_auc"),
+            "available_figures": [name for name, path in FIGURES.items() if path.is_file()],
         },
+        status_code=503 if report_error else 200,
     )
     response.set_cookie(
         "sg_csrf",
